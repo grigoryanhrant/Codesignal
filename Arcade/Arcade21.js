@@ -1,17 +1,21 @@
+const EMPTY_NUMBER = "";
+const NOTVALID_ZERO_1 = '00';
+const NOTVALID_ZERO_2 = '01';
+
 const isIP4vRange = number => number >= 0 && number <= 255;
 
 const checkEmpty = number => {
-    if(number === "") return false
+    if(number === EMPTY_NUMBER) return false
 
     return true
 }
 
 const validIP4Exception = number => {
-    if(number === '00' || number === '01') return false
+    if(number === NOTVALID_ZERO_1 || number === NOTVALID_ZERO_2) return false
     return true
 }
 
-const solution = (string) => {
+const solution = string => {
     let splittedString = string.split('.');
 
     if(splittedString.length !== 4) return false
