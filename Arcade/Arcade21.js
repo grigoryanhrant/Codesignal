@@ -2,7 +2,10 @@ const EMPTY_NUMBER = "";
 const NOTVALID_ZERO_1 = '00';
 const NOTVALID_ZERO_2 = '01';
 
-const isIP4vRange = number => number >= 0 && number <= 255;
+const minIP4vRange = 0;
+const maxIP4vRange = 255;
+
+const isValidIP4vRange = number => number >= minIP4vRange && number <= maxIP4vRange;
 
 const checkEmpty = number => {
     if(number === EMPTY_NUMBER) return false
@@ -20,7 +23,7 @@ const solution = string => {
 
     if(splittedString.length !== 4) return false
 
-    for(let number of splittedString) if(!checkEmpty(number) || typeof Number(number) !== 'number' || !isIP4vRange(number) || !validIP4Exception(number)) return false
+    for(let number of splittedString) if(!checkEmpty(number) || typeof Number(number) !== 'number' || !isValidIP4vRange(number) || !validIP4Exception(number)) return false
 
     return true
 }
